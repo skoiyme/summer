@@ -1,12 +1,17 @@
 import db from '../db/db.json'
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 export default function Day() {
 
-    const day = useParams().day;
+    const day = Number(useParams().day);
     
-    let list = db.words.filter(data => (data.day === Number(day)));
-    
+    let list = db.words.filter(data => (data.day === day));
+    let hasNumber = db.days.some(data => (data.day === day));
 
+    if(!hasNumber){
+        return (
+            <Navigate to={"/emptyPage"}></Navigate>
+        );
+    }
     return (
         <>
             <h2>Day {day}</h2>
