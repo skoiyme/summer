@@ -1,7 +1,15 @@
 import db from '../db/db.json'
+import {useParams} from "react-router-dom";
 export default function Day() {
+
+    const day = useParams().day;
+    
+    let list = db.words.filter(data => (data.day === Number(day)));
+    
+
     return (
         <>
+            <h2>Day {day}</h2>
             <table>
                 <thead>
                     <tr>
@@ -16,12 +24,9 @@ export default function Day() {
                 <tbody>
 
 
-                    {db.words.filter(
-                        data => (
-                            data.day == 3
-                        )).map(
+                    {list.map(
                             data => (
-                                <tr>
+                                <tr key={data.id}>
                                     <td>{data.eng}</td>
                                     <td>{data.kor}</td>
                                 </tr>
