@@ -1,18 +1,38 @@
-import db from '../db/db.json'
+
 import {Navigate, useParams} from "react-router-dom";
 import Word from './Word';
+import { useEffect, useState } from "react";
 export default function Day() {
 
     const day = Number(useParams().day);
-    
-    let list = db.words.filter(data => (data.day === day));
-    let hasNumber = db.days.some(data => (data.day === day));
 
-    if(!hasNumber){
-        return (
-            <Navigate to={"/emptyPage"}></Navigate>
-        );
-    }
+    const [db, setDb] = useState([]);
+    
+        useEffect(()=>{
+            fetch('http://localhost:7777/words')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setDb(data);
+                
+            })
+        },[]);
+        console.log(db+"3333");
+    
+    let list = db.filter(data => (data.day === day));
+    let hasNumber = db.some(data => (data.day === day));
+    console.log(hasNumber+"2222");
+    console.log(day+"4444");
+
+    // if(!hasNumber){
+    //     return (
+    //         <Navigate to={"/emptyPage"}></Navigate>
+    //        // <></>
+    //     );
+    // }
+
+
     return (
         <>
             <h2>Day {day}</h2>
