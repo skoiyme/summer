@@ -80,6 +80,20 @@
       "eng": "jang",
       "kor": "장",
       "isDone": false
+    },
+    {
+      "id": "d7fb",
+      "day": "1",
+      "eng": "kim",
+      "kor": "김",
+      "isDone": false
+    },
+    {
+      "id": "ecea",
+      "day": "2",
+      "eng": "kimsoye",
+      "kor": "김소예",
+      "isDone": false
     }
   ]
 }

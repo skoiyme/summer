@@ -8,7 +8,7 @@ export default function Day() {
 
     
     let db = uesFetch("http://localhost:7777/words");
-    let list = db.filter(data => (data.day === day));
+    let list = db.filter(data => Number(data.day) === Number(day));
   
     let hasNumber = db.some(data => (data.day === day));
 
