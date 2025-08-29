@@ -7,29 +7,17 @@ export default function Day() {
     const day = Number(useParams().day);
 
     
-    //     useEffect(()=>{
-    //         fetch('http://localhost:7777/words')
-    //         .then(res => {
-    //             return res.json();
-    //         })
-    //         .then(data => {
-    //             setDb(data);
-                
-    //         })
-    //     },[]);
-    //     console.log(db+"3333");
     let db = uesFetch("http://localhost:7777/words");
     let list = db.filter(data => (data.day === day));
+  
     let hasNumber = db.some(data => (data.day === day));
 
-    // console.log(hasNumber+"2222");
-    // console.log(day+"4444");
+    console.log(day+"2222");
+
+
 
     // if(!hasNumber){
-    //     return (
-    //         <Navigate to={"/emptyPage"}></Navigate>
-    //        // <></>
-    //     );
+    //     console.log(hasNumber+"2212");
     // }
 
 
@@ -53,6 +41,7 @@ export default function Day() {
                     {list.map(
                             data => (
                                 <Word word={data} key={data.id} />
+
                             )
                         )}
                 </tbody>

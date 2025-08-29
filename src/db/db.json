@@ -73,6 +73,13 @@
       "kor": "사과",
       "isDone": false,
       "id": "12"
+    },
+    {
+      "id": "d8bd",
+      "day": "1",
+      "eng": "jang",
+      "kor": "장",
+      "isDone": false
     }
   ]
 }
