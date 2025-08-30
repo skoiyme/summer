@@ -1,24 +1,29 @@
-import {Navigate, useParams} from "react-router-dom";
+import {Navigate, useNavigate, useParams} from "react-router-dom";
 import Word from './Word';
 
 import uesFetch from "../hooks/uesFetch";
 export default function Day() {
 
     const day = Number(useParams().day);
+    const nav = useNavigate();
 
     
     let db = uesFetch("http://localhost:7777/words");
+    let days = uesFetch("http://localhost:7777/days");
     let list = db.filter(data => Number(data.day) === Number(day));
   
-    let hasNumber = db.some(data => (data.day === day));
+    let hasNumber = days.some(data => Number(data.day) === Number(day));
+    console.log(days.length+"!@!#!#@@!");
+    console.log(days+"rr");
+    console.log(hasNumber+"ss");
 
     // if(db.length === 0){
     //     return <div><span>Loding...</span></div>
     // }
 
-    // if(!hasNumber){
-    //     console.log(hasNumber+"2212");
-    // }
+    if(days.length > 0 && !hasNumber){
+        nav(`/emptyPage`);
+    }
 
 
     return (

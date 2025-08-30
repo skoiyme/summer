@@ -116,13 +116,6 @@
       "eng": "apple",
       "kor": "사과",
       "isDone": false
-    },
-    {
-      "id": "1e08",
-      "day": "1",
-      "eng": "",
-      "kor": "",
-      "isDone": false
     }
   ]
 }
