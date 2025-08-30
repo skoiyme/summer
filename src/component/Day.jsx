@@ -12,9 +12,9 @@ export default function Day() {
   
     let hasNumber = db.some(data => (data.day === day));
 
-    console.log(day+"2222");
-
-
+    // if(db.length === 0){
+    //     return <div><span>Loding...</span></div>
+    // }
 
     // if(!hasNumber){
     //     console.log(hasNumber+"2212");
@@ -24,6 +24,7 @@ export default function Day() {
     return (
         <>
             <h2>Day {day}</h2>
+            {db.length === 0 && <div><span>Loding...</span></div>}
             <table>
                 <thead>
                     <tr>

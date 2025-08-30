@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import useFetch from "../hooks/uesFetch";
 import { useNavigate } from "react-router-dom";
 
@@ -10,12 +10,16 @@ export default function CreateWord() {
     const korRef = useRef(null);
     const dayRef = useRef(null);
 
+    const [isLoding, setIsLoding] = useState(false);
+
 
     return(
         <form onSubmit={(e) => {
                 e.preventDefault();
+                if(!isLoding){
+                    setIsLoding(true);
 
-                fetch(`http://localhost:7777/words/`, {
+                    fetch(`http://localhost:7777/words/`, {
                     method: "POST",
                     headers: {
                     'Content-Type' : 'application/json',
@@ -30,9 +34,14 @@ export default function CreateWord() {
                     if(res.ok) {
                         alert('등록이 완료 되었습니다');
                         nav(`/day/${dayRef.current.value}`)
+                        setIsLoding(false);
 
                     }
                 });
+
+                }
+
+                
 
             }}>
             <div className="input_area">
@@ -53,7 +62,7 @@ export default function CreateWord() {
                     
                 </select>
             </div>
-            <button>저장</button>
+            <button>{isLoding ? "Saving..." : "저장"}</button>
         </form>
     );
         
