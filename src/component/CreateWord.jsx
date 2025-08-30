@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import useFetch from "../hooks/uesFetch";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateWord() {
     const days = useFetch("http://localhost:7777/days");
+    const nav = useNavigate();
 
     const engRef = useRef(null);
     const korRef = useRef(null);
@@ -26,7 +28,9 @@ export default function CreateWord() {
                     }),
                 }).then(res => {
                     if(res.ok) {
-                        alert('등록 성공');
+                        alert('등록이 완료 되었습니다');
+                        nav(`/day/${dayRef.current.value}`)
+
                     }
                 });
 

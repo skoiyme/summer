@@ -15,6 +15,10 @@
     {
       "day": 4,
       "id": "4"
+    },
+    {
+      "id": "6ba4",
+      "day": 5
     }
   ],
   "words": [
@@ -93,6 +97,20 @@
       "day": "2",
       "eng": "kimsoye",
       "kor": "김소예",
+      "isDone": false
+    },
+    {
+      "id": "9303",
+      "day": "3",
+      "eng": "purple",
+      "kor": "보라",
+      "isDone": false
+    },
+    {
+      "id": "a599",
+      "day": "5",
+      "eng": "apple",
+      "kor": "사과",
       "isDone": false
     }
   ]
